@@ -7,8 +7,8 @@ export default function ProductDetail(props) {
     let productId = useParams();
     console.log(productId);
     return (
-        <div className="product-detail">
-            <h3 className="product-title">Product {productId.productId}</h3>
+        <div>
+            <h3>Product {productId.productId}</h3>
         </div>
     );
 }
