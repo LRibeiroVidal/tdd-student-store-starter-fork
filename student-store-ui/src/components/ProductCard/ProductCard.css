@@ -1,7 +1,7 @@
 .product-card {
 	margin: 18px;
 	background-color: aliceblue;
-	height: 400px;
+	height: 350px;
 	width: 252px;
 	border: 1px solid gray;
 }
@@ -18,10 +18,22 @@
 }
 
 .add-and-remove {
-	float: right;
+	display: flex;
 }
 
 .add-item:hover,
 .remove-item:hover {
 	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+.remove-item {
+	transition: 0.5s;
+}
+
+.amount {
+	padding: 2px;
 }

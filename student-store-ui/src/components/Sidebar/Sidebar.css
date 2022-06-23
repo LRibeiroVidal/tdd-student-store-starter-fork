@@ -40,4 +40,15 @@ button {
 
 .other-icons {
 	margin-top: 50px;
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+.shopping-cart,
+.payment-info,
+.confirmation-email {
+	display: flex;
 }

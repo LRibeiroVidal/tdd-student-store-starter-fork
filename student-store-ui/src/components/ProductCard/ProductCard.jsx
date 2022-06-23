@@ -7,6 +7,19 @@ import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox
 
 export default function ProductCard(props) {
 	console.log(props.product);
+	const [itemAmount, setItemAmount] = React.useState(props.product.amount);
+
+	function increaseAmount() {
+		if (props.product.amount > 99) return;
+		props.product.amount += 1;
+		setItemAmount(props.product.amount);
+	}
+
+	function decreaseAmount() {
+		if (props.product.amount == 0) return;
+		props.product.amount -= 1;
+		setItemAmount(props.product.amount);
+	}
 
 	var formatter = new Intl.NumberFormat("en-US", {
 		style: "currency",
@@ -26,9 +39,17 @@ export default function ProductCard(props) {
 				<div className="add-and-remove">
 					<IndeterminateCheckBoxIcon
 						className="remove-item"
-						style={{ color: "darkred" }}
+						style={{ color: itemAmount == 0 ? "gray" : "darkred" }}
+						onClick={decreaseAmount}
 					/>
-					<AddBoxIcon className="add-item" style={{ color: "darkgreen" }} />
+					<span className={itemAmount == 0 ? "amount hidden" : "amount"}>
+						{itemAmount}
+					</span>
+					<AddBoxIcon
+						className="add-item"
+						style={{ color: itemAmount > 99 ? "gray" : "darkgreen" }}
+						onClick={increaseAmount}
+					/>
 				</div>
 			</div>
 			<div className="stars">

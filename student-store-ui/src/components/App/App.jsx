@@ -26,6 +26,10 @@ export default function App() {
 		});
 	}, []);
 
+	products.map((product) => {
+		product.amount = 0;
+	});
+
 	return (
 		<div className="app">
 			<BrowserRouter>
