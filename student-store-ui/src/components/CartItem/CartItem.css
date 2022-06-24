@@ -1,0 +1,7 @@
+.cart-item {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	color: black;
+	background-color: aliceblue;
+}

@@ -14,6 +14,7 @@ export default function Sidebar({
 	handleOnCheckoutFormChange,
 	handleOnSubmitCheckoutForm,
 	handleOnToggle = () => {},
+	setIsOpen,
 }) {
 	return (
 		<section className={isOpen ? "sidebar" : "sidebar closed"}>
@@ -50,7 +51,11 @@ export default function Sidebar({
 							}}
 						/>
 					</div>
-					<br />
+					<ShoppingCart
+						isOpen={isOpen}
+						products={products}
+						setIsOpen={setIsOpen}
+					/>
 					<div className="payment-info">
 						<h3
 							className={

@@ -6,7 +6,16 @@ export default function ProductGrid(props) {
 	return (
 		<div className="ProductGrid">
 			{props.products.map((product, idx) => {
-				return <ProductCard product={product} key={idx} />;
+				return (
+					<ProductCard
+						product={product}
+						amount={product.amount}
+						key={idx}
+						idx={idx}
+						increaseAmountAt={props.increaseAmountAt}
+						decreaseAmountAt={props.decreaseAmountAt}
+					/>
+				);
 			})}
 		</div>
 	);

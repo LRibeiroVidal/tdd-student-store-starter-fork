@@ -6,25 +6,12 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 
 export default function ProductCard(props) {
-	console.log(props.product);
-	const [itemAmount, setItemAmount] = React.useState(props.product.amount);
-
-	function increaseAmount() {
-		if (props.product.amount > 99) return;
-		props.product.amount += 1;
-		setItemAmount(props.product.amount);
-	}
-
-	function decreaseAmount() {
-		if (props.product.amount == 0) return;
-		props.product.amount -= 1;
-		setItemAmount(props.product.amount);
-	}
-
 	var formatter = new Intl.NumberFormat("en-US", {
 		style: "currency",
 		currency: "USD",
 	});
+
+	const [amountLocal, setAmountLocal] = React.useState(props.amount);
 
 	return (
 		<div className="product-card">
@@ -39,16 +26,22 @@ export default function ProductCard(props) {
 				<div className="add-and-remove">
 					<IndeterminateCheckBoxIcon
 						className="remove-item"
-						style={{ color: itemAmount == 0 ? "gray" : "darkred" }}
-						onClick={decreaseAmount}
+						style={{ color: props.product.amount == 0 ? "gray" : "darkred" }}
+						onClick={() => {
+							props.decreaseAmountAt(props.idx);
+							setAmountLocal(props.product.amount);
+						}}
 					/>
-					<span className={itemAmount == 0 ? "amount hidden" : "amount"}>
-						{itemAmount}
+					<span className={amountLocal == 0 ? "amount hidden" : "amount"}>
+						{amountLocal}
 					</span>
 					<AddBoxIcon
 						className="add-item"
-						style={{ color: itemAmount > 99 ? "gray" : "darkgreen" }}
-						onClick={increaseAmount}
+						style={{ color: amountLocal > 99 ? "gray" : "darkgreen" }}
+						onClick={() => {
+							props.increaseAmountAt(props.idx);
+							setAmountLocal(props.product.amount);
+						}}
 					/>
 				</div>
 			</div>
