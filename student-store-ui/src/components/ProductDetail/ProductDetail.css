@@ -1,3 +1,9 @@
 h3 {
-    margin-left: 60px;
+	margin-left: 60px;
+}
+
+.make-it-big {
+	transform: scale(2);
+	align-self: center;
+	margin-top: 200px;
 }

@@ -15,6 +15,7 @@ export default function Sidebar({
 	handleOnSubmitCheckoutForm,
 	handleOnToggle = () => {},
 	setIsOpen,
+	cartHasItems,
 }) {
 	return (
 		<section className={isOpen ? "sidebar" : "sidebar closed"}>
@@ -31,7 +32,7 @@ export default function Sidebar({
 					/>
 				</button>
 
-				<div className="other-icons" onClick={handleOnToggle}>
+				<div className="other-icons">
 					<div className="shopping-cart">
 						<h3
 							className={
@@ -55,6 +56,7 @@ export default function Sidebar({
 						isOpen={isOpen}
 						products={products}
 						setIsOpen={setIsOpen}
+						cartHasItems={cartHasItems}
 					/>
 					<div className="payment-info">
 						<h3

@@ -18,16 +18,21 @@ export default function App() {
 
 	const [products, setProducts] = React.useState([]);
 	const [isFetching, setIsFetching] = React.useState(false);
+	const [cartIsEmpty, setCartIsEmpty] = React.useState(true);
 
 	React.useEffect(() => {
 		setIsFetching(true);
-		axios.get(URL).then((resp) => {
-			resp.data.products.map((product) => {
-				return (product.amount = 0);
-			});
-			setProducts(resp.data.products);
-			setIsFetching(false);
-		});
+		axios
+			.get(URL)
+			.then((resp) => {
+				resp.data.products.map((product) => {
+					return (product.amount = 0);
+				});
+				setProducts(resp.data.products);
+				setIsFetching(false);
+				console.log("fetch completed");
+			})
+			.catch((err) => console.log("ERROR ", err));
 	}, []);
 
 	function increaseAmountAt(idx) {
@@ -44,6 +49,10 @@ export default function App() {
 		setProducts(prodsCopy);
 	}
 
+	function cartHasItems() {
+		setCartIsEmpty(false);
+	}
+
 	return (
 		<div className="app">
 			<BrowserRouter>
@@ -55,6 +64,8 @@ export default function App() {
 						isOpen={isOpen}
 						products={products}
 						setIsOpen={setIsOpen}
+						cartHasItems={cartHasItems}
+						cartIsEmpty={cartIsEmpty}
 					/>
 					<Routes>
 						<Route
@@ -67,7 +78,16 @@ export default function App() {
 								/>
 							}
 						/>
-						<Route path="/products/:productId" element={<ProductDetail />} />
+						<Route
+							path="/products/:productId"
+							element={
+								<ProductDetail
+									products={products}
+									increaseAmountAt={increaseAmountAt}
+									decreaseAmountAt={decreaseAmountAt}
+								/>
+							}
+						/>
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</main>

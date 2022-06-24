@@ -10,17 +10,20 @@ export default function ProductCard(props) {
 		style: "currency",
 		currency: "USD",
 	});
+	console.log(props.product);
 
-	const [amountLocal, setAmountLocal] = React.useState(props.amount);
+	const [amountLocal, setAmountLocal] = React.useState(props.product.amount);
 
 	return (
 		<div className="product-card">
-			<img
-				className="product-image"
-				src={props.product.image}
-				height="250px"
-				width="250px"
-			/>
+			<a href={props.url}>
+				<img
+					className="product-image"
+					src={props.product.image}
+					height="75%%"
+					width="100%"
+				/>
+			</a>
 			<div className="product-and-add">
 				<div className="product-name">{props.product.name}</div>
 				<div className="add-and-remove">

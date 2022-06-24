@@ -15,12 +15,15 @@
 	font-weight: bolder;
 }
 
-.shopping-cart-elem {
-	border: solid white 3px;
-	border-radius: 3px;
-}
-
 .shopping-cart-table {
 	background-color: aliceblue;
 	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+.shopping-cart-elem.hidden {
+	display: none;
 }

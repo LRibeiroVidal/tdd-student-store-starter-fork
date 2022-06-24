@@ -1,11 +1,13 @@
 import * as React from "react";
 import "./ProductGrid.css";
 import ProductCard from "../ProductCard/ProductCard";
+import { Link } from "@mui/material";
 
 export default function ProductGrid(props) {
 	return (
 		<div className="ProductGrid">
 			{props.products.map((product, idx) => {
+				let url = "/products/" + product.id;
 				return (
 					<ProductCard
 						product={product}
@@ -14,6 +16,7 @@ export default function ProductGrid(props) {
 						idx={idx}
 						increaseAmountAt={props.increaseAmountAt}
 						decreaseAmountAt={props.decreaseAmountAt}
+						url={url}
 					/>
 				);
 			})}

@@ -1,9 +1,14 @@
 .product-card {
 	margin: 18px;
-	background-color: aliceblue;
+	background-color: white;
 	height: 350px;
 	width: 252px;
-	border: 1px solid gray;
+	border: 2px solid gray;
+	border-radius: 7px;
+}
+
+img {
+	border-radius: 5px;
 }
 
 .product-card:hover {
