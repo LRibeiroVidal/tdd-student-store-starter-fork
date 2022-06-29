@@ -7,7 +7,7 @@ export default function ProductGrid(props) {
 	return (
 		<div className="ProductGrid">
 			{props.products.map((product, idx) => {
-				let url = "/products/" + product.id;
+				let url = "/store/" + product.id;
 				return (
 					<ProductCard
 						product={product}

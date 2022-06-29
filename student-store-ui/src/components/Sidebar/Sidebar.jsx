@@ -5,6 +5,7 @@ import AddCardIcon from "@mui/icons-material/AddCard";
 import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 export default function Sidebar({
 	isOpen = false,
@@ -77,7 +78,7 @@ export default function Sidebar({
 							}}
 						/>
 					</div>
-					<br />
+					<CheckoutForm isOpen={isOpen} />
 					<div className="confirmation-email">
 						<h3
 							className={

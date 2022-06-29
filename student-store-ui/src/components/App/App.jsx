@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
-const URL = "http://localhost:3001/store";
+const URL = "http://localhost:3001";
 
 export default function App() {
 	const [isOpen, setIsOpen] = React.useState(false);
@@ -23,7 +23,7 @@ export default function App() {
 	React.useEffect(() => {
 		setIsFetching(true);
 		axios
-			.get(URL)
+			.get(URL + "/store")
 			.then((resp) => {
 				console.log(resp);
 				resp.data.products.map((product) => {
@@ -80,7 +80,7 @@ export default function App() {
 							}
 						/>
 						<Route
-							path="/products/:productId"
+							path="/store/:productId"
 							element={
 								<ProductDetail
 									products={products}

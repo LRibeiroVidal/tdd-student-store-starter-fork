@@ -16,7 +16,7 @@ export default function ShoppingCart(props) {
 		currency: "USD",
 	});
 	var totalPrice = 0;
-	const TAXES = 0.0725;
+	const TAXES = 0.0875;
 	var showCart = false;
 
 	return (
