@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
-const URL = " https://codepath-store-api.herokuapp.com/store";
+const URL = "http://localhost:3001/store";
 
 export default function App() {
 	const [isOpen, setIsOpen] = React.useState(false);
@@ -25,6 +25,7 @@ export default function App() {
 		axios
 			.get(URL)
 			.then((resp) => {
+				console.log(resp);
 				resp.data.products.map((product) => {
 					return (product.amount = 0);
 				});
