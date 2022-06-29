@@ -12,7 +12,10 @@ export default function CheckoutForm(props) {
 						className="checkout-form-input"
 						type="text"
 						placeholder="Student Name"
-						value=""
+						value={props.userName}
+						onChange={(e) => {
+							props.setUserName(e.target.value);
+						}}
 					/>
 				</div>
 			</div>
@@ -24,7 +27,10 @@ export default function CheckoutForm(props) {
 						className="checkout-form-input"
 						type="email"
 						placeholder="student@codepath.org"
-						value=""
+						value={props.userEmail}
+						onChange={(e) => {
+							props.setUserEmail(e.target.value);
+						}}
 					/>
 				</div>
 			</div>

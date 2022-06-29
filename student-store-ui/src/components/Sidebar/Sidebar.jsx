@@ -17,6 +17,10 @@ export default function Sidebar({
 	handleOnToggle = () => {},
 	setIsOpen,
 	cartHasItems,
+	userEmail,
+	setUserEmail,
+	userName,
+	setUserName,
 }) {
 	return (
 		<section className={isOpen ? "sidebar" : "sidebar closed"}>
@@ -78,7 +82,13 @@ export default function Sidebar({
 							}}
 						/>
 					</div>
-					<CheckoutForm isOpen={isOpen} />
+					<CheckoutForm
+						isOpen={isOpen}
+						userEmail={userEmail}
+						setUserEmail={setUserEmail}
+						userName={userName}
+						setUserName={setUserName}
+					/>
 					<div className="confirmation-email">
 						<h3
 							className={

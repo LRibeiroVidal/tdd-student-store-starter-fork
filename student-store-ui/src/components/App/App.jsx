@@ -19,6 +19,8 @@ export default function App() {
 	const [products, setProducts] = React.useState([]);
 	const [isFetching, setIsFetching] = React.useState(false);
 	const [cartIsEmpty, setCartIsEmpty] = React.useState(true);
+	const [userEmail, setUserEmail] = React.useState("");
+	const [userName, setUserName] = React.useState("");
 
 	React.useEffect(() => {
 		setIsFetching(true);
@@ -67,6 +69,10 @@ export default function App() {
 						setIsOpen={setIsOpen}
 						cartHasItems={cartHasItems}
 						cartIsEmpty={cartIsEmpty}
+						userEmail={userEmail}
+						setUserEmail={setUserEmail}
+						userName={userName}
+						setUserName={setUserName}
 					/>
 					<Routes>
 						<Route
