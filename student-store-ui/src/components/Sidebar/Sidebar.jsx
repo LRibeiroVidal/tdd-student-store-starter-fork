@@ -6,6 +6,7 @@ import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import ReceiptContainer from "../ReceiptContainer/ReceiptContainer";
 
 export default function Sidebar({
 	isOpen = false,
@@ -21,6 +22,10 @@ export default function Sidebar({
 	setUserEmail,
 	userName,
 	setUserName,
+	showingReceipt,
+	setShowingReceipt,
+	resetSidebar,
+	postOrder,
 }) {
 	return (
 		<section className={isOpen ? "sidebar" : "sidebar closed"}>
@@ -88,6 +93,9 @@ export default function Sidebar({
 						setUserEmail={setUserEmail}
 						userName={userName}
 						setUserName={setUserName}
+						showingReceipt={showingReceipt}
+						setShowingReceipt={setShowingReceipt}
+						postOrder={postOrder}
 					/>
 					<div className="confirmation-email">
 						<h3
@@ -110,6 +118,14 @@ export default function Sidebar({
 							}}
 						/>
 					</div>
+					<ReceiptContainer
+						showingReceipt={showingReceipt}
+						setShowingReceipt={setShowingReceipt}
+						userName={userName}
+						userEmail={userEmail}
+						products={products}
+						resetSidebar={resetSidebar}
+					/>
 				</div>
 			</div>
 		</section>

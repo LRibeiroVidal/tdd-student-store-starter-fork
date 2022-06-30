@@ -50,7 +50,16 @@ export default function CheckoutForm(props) {
 			<p className="is-danger"></p>
 			<div className="field">
 				<div className="control">
-					<button className="button checkout-button">Checkout</button>
+					<button
+						className="button checkout-button"
+						onClick={() => {
+							props.setShowingReceipt(true);
+							props.postOrder();
+						}}
+						disabled={props.showingReceipt}
+					>
+						Checkout
+					</button>
 				</div>
 			</div>
 		</div>

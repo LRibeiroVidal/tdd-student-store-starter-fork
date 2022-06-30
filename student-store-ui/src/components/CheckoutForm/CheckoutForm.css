@@ -1,16 +1,18 @@
 .checkout-form .input-field .control input {
-	width: 100%;
+	width: 70%;
 	height: 36px;
 	padding: 0 15px;
 	border-radius: 8px;
 	border: solid 1px #e4e4e4;
 	flex: 1;
 	font-size: 16px;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
 .checkout-button {
 	width: 35%;
-	height: 50%;
+	height: 35%;
 }
 
 .label {

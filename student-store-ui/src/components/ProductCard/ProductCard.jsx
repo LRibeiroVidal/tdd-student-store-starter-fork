@@ -10,7 +10,6 @@ export default function ProductCard(props) {
 		style: "currency",
 		currency: "USD",
 	});
-	console.log(props.product);
 
 	const [amountLocal, setAmountLocal] = React.useState(props.product.amount);
 

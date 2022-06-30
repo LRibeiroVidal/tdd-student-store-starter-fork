@@ -9,7 +9,7 @@ import NotFound from "../NotFound/NotFound";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
 const URL = "http://localhost:3001";
-
+var currentId = 1;
 export default function App() {
 	const [isOpen, setIsOpen] = React.useState(false);
 	function handleOnToggle() {
@@ -21,6 +21,7 @@ export default function App() {
 	const [cartIsEmpty, setCartIsEmpty] = React.useState(true);
 	const [userEmail, setUserEmail] = React.useState("");
 	const [userName, setUserName] = React.useState("");
+	const [showingReceipt, setShowingReceipt] = React.useState(false);
 
 	React.useEffect(() => {
 		setIsFetching(true);
@@ -37,6 +38,28 @@ export default function App() {
 			})
 			.catch((err) => console.log("ERROR ", err));
 	}, []);
+
+	function resetSidebar() {
+		setCartIsEmpty(true);
+		products.map((product) => {
+			return (product.amount = 0);
+		});
+		setUserEmail("");
+		setUserName("");
+		setShowingReceipt(false);
+	}
+
+	function postOrder() {
+		var order = { orderId: currentId, products: [] };
+		console.log("ORDER HERE ", order);
+
+		products.map((product) => {
+			if (product.amount > 0) order.products = [...order.products, product];
+		});
+		currentId++;
+
+		axios.post(URL + "/postOrder", order);
+	}
 
 	function increaseAmountAt(idx) {
 		if (products[idx].amount > 99) return;
@@ -73,6 +96,10 @@ export default function App() {
 						setUserEmail={setUserEmail}
 						userName={userName}
 						setUserName={setUserName}
+						showingReceipt={showingReceipt}
+						setShowingReceipt={setShowingReceipt}
+						resetSidebar={resetSidebar}
+						postOrder={postOrder}
 					/>
 					<Routes>
 						<Route

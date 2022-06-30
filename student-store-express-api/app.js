@@ -20,4 +20,9 @@ app.get("/store", (req, res) => {
 	res.status(200).send({ products: storage.get("products").value() });
 });
 
+app.post("/postOrder", (req, res) => {
+	console.log("REQUEST HERE ", req.body);
+	storage.get("purchases").push(req.body).write();
+});
+
 module.exports = app;

@@ -27,7 +27,7 @@ export default function ShoppingCart(props) {
 		>
 			<div
 				className={
-					true ? "shopping-cart-wrapper" : "shopping-cart-wrapper hidden" // FIXME: logic for showing cart
+					true ? "shopping-cart-wrapper" : "shopping-cart-wrapper hidden"
 				}
 			>
 				<TableContainer className="shopping-cart-table">
