@@ -22,6 +22,7 @@ export default function App() {
 	const [userEmail, setUserEmail] = React.useState("");
 	const [userName, setUserName] = React.useState("");
 	const [showingReceipt, setShowingReceipt] = React.useState(false);
+	const [searchQuery, setSearchQuery] = React.useState("");
 
 	React.useEffect(() => {
 		setIsFetching(true);
@@ -109,6 +110,8 @@ export default function App() {
 									products={products}
 									increaseAmountAt={increaseAmountAt}
 									decreaseAmountAt={decreaseAmountAt}
+									searchQuery={searchQuery}
+									setSearchQuery={setSearchQuery}
 								/>
 							}
 						/>

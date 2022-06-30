@@ -10,7 +10,7 @@ export default function ReceiptContainer(props) {
 
 	if (!props.showingReceipt) {
 		return (
-			<div className="receipt-text">
+			<div className={props.isOpen ? "receipt-text" : "receipt-text hidden"}>
 				A confirmation email will be sent to you so that you can confirm this
 				order. Once you have confirmed the order, it will be delivered to your
 				dorm room.
@@ -18,7 +18,7 @@ export default function ReceiptContainer(props) {
 		);
 	} else {
 		return (
-			<div className="receipt-text">
+			<div className={props.isOpen ? "receipt-text" : "receipt-text hidden"}>
 				<h4>Receipt</h4>
 				<div>
 					Showing receipt for {props.userName} available at {props.userEmail}:

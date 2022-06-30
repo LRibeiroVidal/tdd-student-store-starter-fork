@@ -8,17 +8,22 @@ export default function ProductGrid(props) {
 		<div className="ProductGrid">
 			{props.products.map((product, idx) => {
 				let url = "/store/" + product.id;
-				return (
-					<ProductCard
-						product={product}
-						amount={product.amount}
-						key={idx}
-						idx={idx}
-						increaseAmountAt={props.increaseAmountAt}
-						decreaseAmountAt={props.decreaseAmountAt}
-						url={url}
-					/>
-				);
+				if (
+					props.searchQuery == "" ||
+					product.name.toLowerCase().includes(props.searchQuery.toLowerCase())
+				) {
+					return (
+						<ProductCard
+							product={product}
+							amount={product.amount}
+							key={idx}
+							idx={idx}
+							increaseAmountAt={props.increaseAmountAt}
+							decreaseAmountAt={props.decreaseAmountAt}
+							url={url}
+						/>
+					);
+				}
 			})}
 		</div>
 	);

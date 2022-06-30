@@ -125,6 +125,7 @@ export default function Sidebar({
 						userEmail={userEmail}
 						products={products}
 						resetSidebar={resetSidebar}
+						isOpen={isOpen}
 					/>
 				</div>
 			</div>
