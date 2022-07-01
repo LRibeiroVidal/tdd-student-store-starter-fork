@@ -39,3 +39,17 @@
 	width: 35vw;
 	margin-top: 2vw;
 }
+
+.category-select {
+	display: flex;
+	justify-content: space-around;
+	margin: 2vw;
+}
+
+.category-select-item {
+	cursor: pointer;
+}
+
+.chosenCat {
+	border-bottom: 3px solid #07c285;
+}

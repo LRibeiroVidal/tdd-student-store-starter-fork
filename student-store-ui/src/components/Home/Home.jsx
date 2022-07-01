@@ -2,8 +2,16 @@ import * as React from "react";
 import "./Home.css";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
+import About from "../About/About";
+import Contact from "../Contact/Contact";
 
 export default function Home(props) {
+	const [catSelect, setCatSelect] = React.useState("");
+
+	function handleCatClick(cat) {
+		setCatSelect(cat);
+	}
+
 	return (
 		<div className="home">
 			<div className="hero">
@@ -40,12 +48,85 @@ export default function Home(props) {
 					style={{ width: "2vw", height: "2vw", color: "white" }}
 				/>
 			</div>
+			<div className="category-select">
+				<div
+					className={
+						catSelect == ""
+							? "category-select-item chosenCat"
+							: "category-select-item"
+					}
+					onClick={() => {
+						handleCatClick("");
+					}}
+				>
+					All Categories
+				</div>
+				<div
+					className={
+						catSelect == "clothing"
+							? "category-select-item chosenCat"
+							: "category-select-item"
+					}
+					onClick={() => {
+						handleCatClick("clothing");
+					}}
+				>
+					Clothing
+				</div>
+				<div
+					className={
+						catSelect == "food"
+							? "category-select-item chosenCat"
+							: "category-select-item"
+					}
+					onClick={() => {
+						handleCatClick("food");
+					}}
+				>
+					Food
+				</div>
+				<div
+					className={
+						catSelect == "accessories"
+							? "category-select-item chosenCat"
+							: "category-select-item"
+					}
+					onClick={() => {
+						handleCatClick("accessories");
+					}}
+				>
+					Accessories
+				</div>
+				<div
+					className={
+						catSelect == "tech"
+							? "category-select-item chosenCat"
+							: "category-select-item"
+					}
+					onClick={() => {
+						handleCatClick("tech");
+					}}
+				>
+					Tech
+				</div>
+			</div>
+
 			<ProductGrid
 				products={props.products}
 				increaseAmountAt={props.increaseAmountAt}
 				decreaseAmountAt={props.decreaseAmountAt}
 				searchQuery={props.searchQuery}
+				catSelect={catSelect}
+				id="Buy"
 			/>
+
+			<div id="About">
+				<About />
+			</div>
+
+			<div id="Contact">
+				<Contact />
+			</div>
 		</div>
 	);
 }

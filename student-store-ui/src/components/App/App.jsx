@@ -51,7 +51,19 @@ export default function App() {
 	}
 
 	function postOrder() {
-		var order = { orderId: currentId, products: [] };
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, "0");
+		var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+		var yyyy = today.getFullYear();
+		var hh = today.getHours();
+		var min = today.getMinutes();
+		today = mm + "-" + dd + "-" + yyyy + " " + hh + ":" + min;
+		var order = {
+			orderId: currentId,
+			email: userEmail,
+			products: [],
+			timeDate: today,
+		};
 		console.log("ORDER HERE ", order);
 
 		products.map((product) => {

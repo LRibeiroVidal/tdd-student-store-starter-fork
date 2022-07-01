@@ -11,9 +11,9 @@ export default function Navbar() {
 			<Logo />
 
 			<ul className="links">
-				<Link
+				<a
 					className="link"
-					to={"/"}
+					href={"/"}
 					onClick={() => {
 						setActiveCat("Home");
 					}}
@@ -25,10 +25,10 @@ export default function Navbar() {
 					>
 						Home
 					</li>
-				</Link>
-				<Link
+				</a>
+				<a
 					className="link"
-					to={"#About"}
+					href={"#About"}
 					onClick={() => {
 						setActiveCat("About");
 					}}
@@ -40,10 +40,10 @@ export default function Navbar() {
 					>
 						About Us
 					</li>
-				</Link>
-				<Link
+				</a>
+				<a
 					className="link"
-					to={"#Contact"}
+					href={"#Contact"}
 					onClick={() => {
 						setActiveCat("Contact");
 					}}
@@ -56,10 +56,10 @@ export default function Navbar() {
 					>
 						Contact Us
 					</li>
-				</Link>
-				<Link
+				</a>
+				<a
 					className="link"
-					to={"#Buy"}
+					href={"#Buy"}
 					onClick={() => {
 						setActiveCat("Buy");
 					}}
@@ -71,7 +71,7 @@ export default function Navbar() {
 					>
 						Buy Now
 					</li>
-				</Link>
+				</a>
 			</ul>
 		</nav>
 	);

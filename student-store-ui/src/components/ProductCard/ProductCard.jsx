@@ -11,8 +11,6 @@ export default function ProductCard(props) {
 		currency: "USD",
 	});
 
-	const [amountLocal, setAmountLocal] = React.useState(props.product.amount);
-
 	return (
 		<div className="product-card">
 			<a href={props.url}>
@@ -31,18 +29,18 @@ export default function ProductCard(props) {
 						style={{ color: props.product.amount == 0 ? "gray" : "darkred" }}
 						onClick={() => {
 							props.decreaseAmountAt(props.idx);
-							setAmountLocal(props.product.amount);
 						}}
 					/>
-					<span className={amountLocal == 0 ? "amount hidden" : "amount"}>
-						{amountLocal}
+					<span
+						className={props.product.amount == 0 ? "amount hidden" : "amount"}
+					>
+						{props.product.amount}
 					</span>
 					<AddBoxIcon
 						className="add-item"
-						style={{ color: amountLocal > 99 ? "gray" : "darkgreen" }}
+						style={{ color: props.product.amount > 99 ? "gray" : "darkgreen" }}
 						onClick={() => {
 							props.increaseAmountAt(props.idx);
-							setAmountLocal(props.product.amount);
 						}}
 					/>
 				</div>

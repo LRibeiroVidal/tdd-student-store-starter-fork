@@ -1,0 +1,26 @@
+.content {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.summary {
+	background-color: #2c3f47;
+	display: flex;
+	height: 19.7vw;
+}
+
+.info {
+	display: block;
+	align-items: left;
+	width: 50%;
+}
+
+.media {
+	width: 50%;
+	transform: translateY(-2vw);
+	border: none;
+}
+
+.item-contact {
+	margin: 4vw;
+}
