@@ -12,17 +12,17 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 - [X] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
 - [X] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
 - [X] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
-- [ ] User can search for products.
+- [X] User can search for products.
 - [X] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
 - [X] User can click to expand the shopping cart in the left navigation.
 - [X] User can click the '+' button on a product cart to increment that product in the shopping cart.
 - [X] User can click the '-' button on a product cart to increment that product in the shopping cart.
 - [X] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
-- [ ] User can check out, and can view receipt upon completion.
+- [X] User can check out, and can view receipt upon completion.
 
 #### Stretch Features
 
-- [ ] User can click in the top navigation bar to scroll to the relevant section.
+- [X] User can click in the top navigation bar to scroll to the relevant section.
 - [ ] User sees a "not found" display when searching for a nonexistent product.
 - [ ] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
 - [ ] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
@@ -36,31 +36,31 @@ The following specifications were met on the Express backend and the React front
 
 **App.jsx**
 
-  - [ ] The core App component that contains the routes for the app and does the initial data fetching
-  - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Should render the `Home.jsx` component
-    - [ ] `/products/:productId` - should render the `ProductDetail` component
-    - [ ] `*` - anything else should render the `NotFound` component
-  - [ ] Renders the `Navbar` component on every route
-  - [ ] Renders the `Sidebar` component on every route
+  - [X] The core App component that contains the routes for the app and does the initial data fetching
+  - [X] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [X] `/` - Should render the `Home.jsx` component
+    - [X] `/products/:productId` - should render the `ProductDetail` component
+    - [X] `*` - anything else should render the `NotFound` component
+  - [X] Renders the `Navbar` component on every route
+  - [X] Renders the `Sidebar` component on every route
   - [ ] Should create **at least** the following state variables:
-    - [ ] `products` - an array of product objects that is initially empty.
-    - [ ] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
-    - [ ] `error` - a variable used to display a message when something goes wrong with the API requests.
-    - [ ] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
-    - [ ] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
+    - [X] `products` - an array of product objects that is initially empty.
+    - [X] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
+    - [X] `error` - a variable used to display a message when something goes wrong with the API requests.
+    - [X] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
+    - [X] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
       - [ ] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
       - [ ] When passed down to other components as a prop, it should formatted as an array of objects.
       - [ ] Each object in the array should have two fields:
         - [ ] The `itemId` field should store the `id` of the item being purchased.
         - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
     - [ ] `checkoutForm` - the user's information that will be sent to the API when they checkout.
-  - [ ] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
+  - [X] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
     - [ ] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
     - [ ] When the request completes successfully, it should store the `products` returned by the response in state.
     - [ ] If the request does not complete successfully, or there are no `products` found in the response,
             it should create an error message and store it in the `error` state variable.
-  - [ ] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
+  - [X] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
     - [ ] Define as many as are needed.
     - [ ] At minimum, **create these five handlers**:
       - [ ] The **`handleOnToggle`** function. When called...
@@ -96,13 +96,13 @@ The following specifications were met on the Express backend and the React front
 
 **Navbar.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `nav` element with a `className` of `navbar`
-  - [ ] Should render the `Logo` component that links to the `/` route when clicked
+  - [X] Should render JSX that is wrapped by a `nav` element with a `className` of `navbar`
+  - [X] Should render the `Logo` component that links to the `/` route when clicked
 
 **Logo.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with a `className` of `logo`
-  - [ ] Should use the `Link` component from `react-router-dom` to link to the home route (`/`) when clicked
+  - [X] Should render JSX that is wrapped by a `div` element with a `className` of `logo`
+  - [X] Should use the `Link` component from `react-router-dom` to link to the home route (`/`) when clicked
 
 **Home.jsx**
 
